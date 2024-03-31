@@ -1,6 +1,9 @@
 package main
 
-import "github.com/webservice/ingFinal/consulta-urgencias-api/internal/core/domain"
+import (
+	"github.com/consultaUrgencias/internal/core/domain"
+	"github.com/consultaUrgencias/internal/server"
+)
 
 type atencion interface {
 	execute(domain.Paciente)
@@ -10,5 +13,5 @@ type atencion interface {
 }
 
 func main() {
-
+	server.Start()
 }
