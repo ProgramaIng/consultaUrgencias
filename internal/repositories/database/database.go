@@ -20,19 +20,31 @@ var (
 
 	radiografias = map[string][]domain.Examenes{
 		"cabeza":              {{Elemento: "lamina para rx", Cantidad: 1}},
-		"miembros Superiores": {{Elemento: "lamina para rx", Cantidad: 1}},
+		"miembros superiores": {{Elemento: "lamina para rx", Cantidad: 1}},
 		"miembros inferiores": {{Elemento: "lamina para rx", Cantidad: 1}},
 		"torax":               {{Elemento: "lamina para rx", Cantidad: 1}},
 	}
 )
 
-func getProcedimientos() map[string][]domain.Examenes {
+func GetProcedimientos() map[string][]domain.Examenes {
 	return procedimientos
 }
-func getlaboratorios() map[string][]domain.Examenes {
+func Getlaboratorios() map[string][]domain.Examenes {
 	return laboratorios
 }
 
-func getradiografias() map[string][]domain.Examenes {
+func Getradiografias() map[string][]domain.Examenes {
 	return radiografias
+}
+
+var usuarios = []domain.Paciente{
+	{Nombre: "Pedro Palacios", Documento: 35354892, HistoriaClinica: domain.HistoriaClinica{}},
+	{Nombre: "Mateo Poloche", Documento: 80472321, HistoriaClinica: domain.HistoriaClinica{}},
+	{Nombre: "Sara Palacios", Documento: 17438901, HistoriaClinica: domain.HistoriaClinica{}},
+	{Nombre: "Diana Agaton", Documento: 24980371, HistoriaClinica: domain.HistoriaClinica{}},
+}
+
+func Getusuarios() []domain.Paciente {
+	return usuarios
+
 }
