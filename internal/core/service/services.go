@@ -23,7 +23,7 @@ func Consulta(a domain.Paciente) string {
 
 }
 
-func RequiereProcedimiento() {
+func RequiereProcedimiento(procedimiento map[string][]domain.Examenes) {
 	var pacienteRequiereProcedimiento string
 	fmt.Println("El paciente requiere un procedimiento? 1. Si 2. No")
 	fmt.Scanln(&pacienteRequiereProcedimiento)
@@ -37,7 +37,7 @@ func RequiereProcedimiento() {
 
 		switch tipoDeProcedimiento {
 		case "1":
-			ProcedimientoInmediato()
+			ProcedimientoInmediato(procedimiento)
 		case "2":
 			ProcedimientoAmbuatorio()
 

@@ -3,59 +3,32 @@ package service
 import (
 	"fmt"
 
-	"github.com/consultaUrgencias/internal/repositories/database"
+	"github.com/consultaUrgencias/internal/core/domain"
 )
 
-func RequiereLaboratorio() {
+func RequiereLaboratorio(laboratorio map[string][]domain.Examenes) {
 	var pacienteRequiereLaboratorio string
 	fmt.Println("El paciente requiere un laboratorio? 1. Si, 2. No")
 	fmt.Scanln(&pacienteRequiereLaboratorio)
 	fmt.Printf("El paciente: %v, requiere un laboratorio", pacienteRequiereLaboratorio)
 
-	if pacienteRequiereLaboratorio == "" {
+	if pacienteRequiereLaboratorio == "1" {
 		var tipoDeLaboratorio string
 		fmt.Println("Cuál es el laboratorio que requiere el paciente: 1.cuadro hematico, 2.parcial de orina, 3.coproscopico")
 		fmt.Scanln(&tipoDeLaboratorio)
 		fmt.Println("El paciente requiere un laboratorio de:", tipoDeLaboratorio)
 
-		switch tipoDeLaboratorio {
-		case "1":
-			LaboratorioCuadroHematico()
-		case "2":
-			LaboratorioParcialDeOrina()
-		case "3":
-			LaboratorioCoproscopico()
-		default:
-			println("Valor no valido")
+		if tipoDeLaboratorio == "1" {
+			fmt.Println("Los elementos que requiere para el cuadro hematico son:", laboratorio["cuadro hematico"])
 		}
-	}
-
-}
-
-func LaboratorioCuadroHematico() {
-	dataProcedimientos := database.Getlaboratorios()
-	for key, dataProcedimiento := range dataProcedimientos {
-		if key == "cuadro hematico" {
-			fmt.Println(dataProcedimiento)
+		if tipoDeLaboratorio == "2" {
+			fmt.Println("Los elementos que requiere para el parcial de orina son:", laboratorio["parcial de orina"])
 		}
-	}
+		if tipoDeLaboratorio == "3" {
+			fmt.Println("Los elementos que requiere para el coproscopico son:", laboratorio["coproscopico"])
+		} else {
+			fmt.Println("El Valor Ingresado es Invalido")
 
-}
-
-func LaboratorioParcialDeOrina() {
-	dataProcedimientos := database.Getlaboratorios()
-	for key, dataProcedimiento := range dataProcedimientos {
-		if key == "parcial de orina" {
-			fmt.Println(dataProcedimiento)
-		}
-	}
-
-}
-func LaboratorioCoproscopico() {
-	dataProcedimientos := database.Getlaboratorios()
-	for key, dataProcedimiento := range dataProcedimientos {
-		if key == "coproscopico" {
-			fmt.Println(dataProcedimiento)
 		}
 	}
 
