@@ -36,3 +36,15 @@ func Getlaboratorios() map[string][]domain.Examenes {
 func Getradiografias() map[string][]domain.Examenes {
 	return radiografias
 }
+
+var usuarios = []domain.Paciente{
+	{Nombre: "Pedro Palacios", Documento: 35354892, HistoriaClinica: domain.HistoriaClinica{}},
+	{Nombre: "Mateo Poloche", Documento: 80472321, HistoriaClinica: domain.HistoriaClinica{}},
+	{Nombre: "Sara Palacios", Documento: 17438901, HistoriaClinica: domain.HistoriaClinica{}},
+	{Nombre: "Diana Agaton", Documento: 24980371, HistoriaClinica: domain.HistoriaClinica{}},
+}
+
+func Getusuarios() []domain.Paciente {
+	return usuarios
+
+}
